@@ -1,9 +1,10 @@
 import './style/App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import {Header} from "./components/Header";
 import MainPage from "./pages/MainPage";
-import {Location} from "./pages/Location";
+import Location from "./pages/Location";
+
 
 export const darkPurpleTheme = createTheme({
   palette: {
@@ -20,12 +21,10 @@ function App() {
   return (
       <ThemeProvider theme={darkPurpleTheme}>
           <Header/>
-          <BrowserRouter>
               <Routes>
                   <Route index path="/" element={<MainPage />}/>
                   <Route path="/location" element={<Location />} />
               </Routes>
-          </BrowserRouter>
       </ThemeProvider>
   );
 }

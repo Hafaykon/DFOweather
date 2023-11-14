@@ -1,0 +1,11 @@
+.header-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: #005b91;
+    background-color: #d1d1d1;
+}
+
+input{
+    margin-top: 30%;
+}
