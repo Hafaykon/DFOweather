@@ -6,6 +6,18 @@
     background-color: #d1d1d1;
 }
 
+.header-content-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: solid #012a4c;
+    background: transparent;
+    margin: 1% 15%;
+    overflow: fragments;
+    float: left;
+}
+
 input{
     margin-top: 30%;
+    radius: 2%;
 }

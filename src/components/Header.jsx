@@ -8,11 +8,10 @@ export const Header = () => {
     return(
         <>
             <div className="header-container">
-                <div className="content-container">
-                <img src="/dfologo_small.png" alt="h"/>
-                <h1>Været for DFØ</h1>
-                <SearchBar />
-                <div>*DropDownMenu??*</div>
+                <div className="header-content-container">
+                    <img src="/dfologo_small.png" alt="h"/>
+                    <h1>Været for DFØ</h1>
+                    <SearchBar />
             </div>
             </div>
         </>
