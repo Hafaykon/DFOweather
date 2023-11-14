@@ -1,0 +1,18 @@
+.content-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: solid #012a4c;
+    background: transparent;
+    margin: 1% 15%;
+}
+
+h1{
+    font-family: "Source Sans Pro";
+    color: #012a4c;
+}
+
+input{
+    height: 15px;
+    background-color: #efefef;
+}
