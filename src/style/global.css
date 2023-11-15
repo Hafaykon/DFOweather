@@ -6,35 +6,22 @@
     float: left;
 }
 
-.weather-container{
-    width: 60%;
-    justify-content: space-between;
-    border: solid #012a4c;
-    background: transparent;
-    margin: 1% 15%;
-    overflow: hidden;
-    border-radius: 25px;
-}
-.main-container{
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    border: solid #012a4c;
-    background: transparent;
-    margin: 1% 15%;
-}
-
-h1{
+h1, h2{
     font-family: "Source Serif Pro";
     color: #012a4c;
 }
 
-h2{
+p, button{
     font-family: "Source Sans Pro";
     color: #012a4c;
 }
 
+button:hover {
+    background-color: #005b91;
+}
+
 input{
     height: 15px;
-    background-color: #efefef;
+    border-radius: 5px;
+    background-color: white;
 }
