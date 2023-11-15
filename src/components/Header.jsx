@@ -4,7 +4,7 @@ import "../style/global.css";
 import "../style/Header.css";
 
 
-export const Header = () => {
+export const Header = (searchTerm) => {
     return(
         <>
             <div className="header-container">

@@ -1,21 +1,21 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "../style/global.css";
 import "../style/WeatherCard.css";
 import {useQuery} from "@tanstack/react-query";
 import{Link} from "react-router-dom";
-import {fetchCoordinates, fetchWeather} from "../api/api_calls";
+import {fetchWeatherByCity} from "../api/api_calls";
 
 
 export const WeatherCard = ({city, latitude, longitude}) => {
 
     const { isLoading, error, data } = useQuery({
-        queryKey: ['weather', latitude, longitude],
-        queryFn: () => fetchWeather(latitude,longitude)
+        queryKey: ['coordinates', city],
+        queryFn: () => fetchWeatherByCity(city)
     })
-    if (isLoading) return 'Loading...'
+    if (isLoading) return (<div className="weather-container">
+        <p>Henter værdata...</p>
+    </div>)
     if (error) return 'Encountered an error while querying' + error.message;
-
-    const test = fetchCoordinates("Trondheim")
 
     const datePart = data.current.time.split('T')[0];
     const [year, month, day] = datePart.split('-');

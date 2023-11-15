@@ -1,6 +1,7 @@
 import axios from "axios";
 
-export async function fetchWeather(latitude, longitude) {
+//Fetches weather data from coordinates.
+export async function fetchWeatherByGrid(latitude, longitude) {
     const base_url = "https://api.open-meteo.com/v1/metno";
     const current_params = "&current=temperature_2m,precipitation,weather_code,wind_speed_10m&wind_speed_unit=ms"
      try {
@@ -12,16 +13,18 @@ export async function fetchWeather(latitude, longitude) {
     }
 }
 
-export async function fetchCoordinates(city) {
-    const base_url = `https://api.api-ninjas.com/v1/geocoding?city=${city}`
+//Fetches weather data from city name (Uses ).
+export async function fetchWeatherByCity(city) {
+    const base_url = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
     try {
-        const response = await axios.get(base_url,{
-             headers: { 'X-Api-Key': "Z7Pf91RtpwAyS046DnfiOZi503IIbsbjNRCJxTvP" }
+        const response = await axios.get(base_url, {
+            headers: { 'X-Api-Key': "Z7Pf91RtpwAyS046DnfiOZi503IIbsbjNRCJxTvP" }
         });
-        console.log(response.data[0].latitude, response.data[0].longitude);
-        return response.data[0];
+        return await fetchWeatherByGrid(response.data[0].latitude, response.data[0].longitude);
     } catch (error) {
-        console.error(`Error fetching geocoding data for ${city}`);
+        console.error(`Error fetching geocoding data for ${city}:`, error);
         throw error;
     }
 }
+
+
