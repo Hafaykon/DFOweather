@@ -6,7 +6,7 @@ import{Link} from "react-router-dom";
 import {fetchWeatherByCity} from "../api/api_calls";
 
 
-export const WeatherCard = ({city, latitude, longitude}) => {
+export const WeatherCard = ({city}) => {
 
     const { isLoading, error, data } = useQuery({
         queryKey: ['coordinates', city],

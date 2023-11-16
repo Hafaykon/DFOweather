@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import "../style/MainPage.css";
 import {WeatherCard} from "../components/WeatherCard";
+import {Header} from "../components/Header";
 
 export const MainPage = () => {
     const [city, setCity] = useState("Trondheim");
@@ -12,6 +13,7 @@ export const MainPage = () => {
 
     return (
     <>
+        <Header onSearch={setCity}/>
         <div className="main-container">
             <div className="location-button-container">
                 <h2>Populære byer</h2>

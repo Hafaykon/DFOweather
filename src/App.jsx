@@ -10,7 +10,6 @@ const queryClient = new QueryClient()
 function App() {
   return (
       <QueryClientProvider client={queryClient}>
-          <Header/>
               <Routes>
                   <Route index path="/" element={<MainPage />}/>
                   <Route path="/location" element={<Location />} />

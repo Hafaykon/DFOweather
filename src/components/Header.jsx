@@ -4,14 +4,14 @@ import "../style/global.css";
 import "../style/Header.css";
 
 
-export const Header = (searchTerm) => {
+export const Header = ({ onSearch }) => {
     return(
         <>
             <div className="header-container">
                 <div className="header-content-container">
                     <img src="/dfologo_small.png" alt="h"/>
                     <h1>Været for DFØ</h1>
-                    <SearchBar />
+                    <SearchBar onSearch={onSearch}/>
             </div>
             </div>
         </>
