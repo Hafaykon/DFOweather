@@ -11,9 +11,15 @@ h1, h2{
     color: #012a4c;
 }
 
-p, button{
+p{
     font-family: "Source Sans Pro";
     color: #012a4c;
+}
+
+button{
+    font-family: "Source Sans Pro";
+    color: #012a4c;
+    cursor: pointer;
 }
 
 button:hover {
