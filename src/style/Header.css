@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border-bottom: #005b91;
+    border-bottom: solid #005b91;
     background-color: #009fe3;
 }
 
@@ -10,14 +10,30 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    border: solid #012a4c;
     background: transparent;
-    margin: 1% 15%;
+    margin: 1% 17%;
     overflow: fragments;
     float: left;
 }
 
+#dfo-logo{
+    margin-top: 2em;
+    width: 206px;
+    height: 57px;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+button{
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
 input{
     margin-top: 30%;
-    radius: 2%;
+    height: 18px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }

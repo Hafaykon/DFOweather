@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {Header} from "./components/Header";
 import MainPage from "./pages/MainPage";
-import Location from "./pages/Location";
+import Forecast from "./pages/Forecast";
 
 const queryClient = new QueryClient()
 
@@ -12,7 +12,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
               <Routes>
                   <Route index path="/" element={<MainPage />}/>
-                  <Route path="/location" element={<Location />} />
+                  <Route path="/forecast" element={<Forecast />} />
               </Routes>
       </QueryClientProvider>
   );
