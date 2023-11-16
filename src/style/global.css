@@ -6,6 +6,22 @@
     float: left;
 }
 
+body{
+    background: #f7f7f7;
+}
+
+#arrow{
+    width: 60px;
+    height: 60px;
+}
+
+.forecast-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
 h1, h2{
     font-family: "Source Serif Pro";
     color: #012a4c;
@@ -14,6 +30,10 @@ h1, h2{
 p{
     font-family: "Source Sans Pro";
     color: #012a4c;
+}
+
+a {
+  text-decoration: none;
 }
 
 button{
@@ -26,8 +46,3 @@ button:hover {
     background-color: #005b91;
 }
 
-input{
-    height: 15px;
-    border-radius: 5px;
-    background-color: white;
-}

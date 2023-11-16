@@ -2,12 +2,13 @@ import React from "react";
 import "../style/global.css";
 import "../style/WeatherCard.css";
 import {useQuery} from "@tanstack/react-query";
-import{Link} from "react-router-dom";
 import {fetchWeatherByCity} from "../api/api_calls";
+import {convertWMOtoSymbol} from "../utils/WMOconverter";
+
+export const WeatherCard = ({city, hours_from_start_of_day}) => {
 
 
-export const WeatherCard = ({city}) => {
-
+    //Uses Tanstack to query from API
     const { isLoading, error, data } = useQuery({
         queryKey: ['coordinates', city],
         queryFn: () => fetchWeatherByCity(city)
@@ -17,38 +18,40 @@ export const WeatherCard = ({city}) => {
     </div>)
     if (error) return 'Encountered an error while querying' + error.message;
 
-    const formattedDate = (data) => {
-        if(data){
-            const datePart = data.current.time.split('T')[0];
-            const [year, month, day] = datePart.split('-');
-            return `${day}/${month}-${year}`;
+
+    //Takes UTC date and returns only date on dd/mm format
+    const formattedDate = (date_utc) => {
+        if(date_utc){
+            const datePart = date_utc.split('T')[0];
+            const [, month, day] = datePart.split('-');
+            return `${day}/${month}`;
         }
         return "Encountered an error while handling date";
     }
 
-
-    //<p>{data.current.weather_code} *CodE*</p>
     return (
-        <Link to="/location">
+        <>
             <div className="weather-container">
-                <h2>{city} {formattedDate(data)}</h2>
+                <h2>{city} {formattedDate(data.hourly.time[hours_from_start_of_day])}</h2>
                 <div className="weather-content-container">
                     <div>
-                        <h2>{data.current.temperature_2m} °C</h2>
+                        <h2 id="temp">{data.hourly.temperature_2m[hours_from_start_of_day]}°C</h2>
                     </div>
                     <div>
-                        <img className='big-weather-icon' src="/sunny_icon.svg" alt="Missing icon"/>
+                        <img className='big-weather-icon'
+                             src={convertWMOtoSymbol(data.hourly.weather_code[hours_from_start_of_day])}
+                             alt="Missing icon"/>
                     </div>
                     <div>
                         <img className='weather-icon' src="/droplet_icon.svg" alt="Missing icon"/>
-                        <p>{data.current.precipitation} mm</p>
+                        <p>{data.hourly.precipitation[hours_from_start_of_day]} mm</p>
                     </div>
                     <div>
                         <img className='weather-icon' src="/windy_icon.svg" alt="Missing icon"/>
-                        <p>{data.current.wind_speed_10m} m/s</p>
+                        <p>{data.hourly.wind_speed_10m[hours_from_start_of_day]} m/s</p>
                     </div>
                 </div>
             </div>
-        </Link>
+        </>
     );
 }
