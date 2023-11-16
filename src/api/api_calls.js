@@ -6,7 +6,6 @@ export async function fetchWeatherByGrid(latitude, longitude) {
     const hourly_params =  "&hourly=temperature_2m,precipitation,weather_code,wind_speed_10m&wind_speed_unit=ms"
      try {
         const response = await axios.get(base_url + `?latitude=${latitude}&longitude=${longitude}`+ hourly_params);
-        console.log("AAAAAAAAAAAAAAAAYYYYYY")
         return response.data;
     } catch (error) {
         console.error(`Error fetching weather data for ${latitude}, ${longitude}:`, error);
