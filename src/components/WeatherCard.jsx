@@ -17,30 +17,34 @@ export const WeatherCard = ({city}) => {
     </div>)
     if (error) return 'Encountered an error while querying' + error.message;
 
-    const datePart = data.current.time.split('T')[0];
-    const [year, month, day] = datePart.split('-');
-    const formattedDate = `${day}/${month}-${year}`;
+    const formattedDate = (data) => {
+        if(data){
+            const datePart = data.current.time.split('T')[0];
+            const [year, month, day] = datePart.split('-');
+            return `${day}/${month}-${year}`;
+        }
+        return "Encountered an error while handling date";
+    }
 
 
+    //<p>{data.current.weather_code} *CodE*</p>
     return (
         <Link to="/location">
             <div className="weather-container">
-                <h2>{city} {formattedDate}</h2>
+                <h2>{city} {formattedDate(data)}</h2>
                 <div className="weather-content-container">
                     <div>
-                        <img className='weatherIcon' src="/icons-search.svg" alt="Weather Icon"/>
-                        <p>{data.current.temperature_2m} °C</p>
+                        <h2>{data.current.temperature_2m} °C</h2>
                     </div>
                     <div>
-                        <img className='weatherIcon' src="/icons-search.svg" alt="Weather Icon"/>
-                        <p>{data.current.weather_code} *CodE*</p>
+                        <img className='big-weather-icon' src="/sunny_icon.svg" alt="Missing icon"/>
                     </div>
                     <div>
-                        <img className='weatherIcon' src="/icons-search.svg" alt="Weather Icon"/>
+                        <img className='weather-icon' src="/droplet_icon.svg" alt="Missing icon"/>
                         <p>{data.current.precipitation} mm</p>
                     </div>
                     <div>
-                        <img className='weatherIcon' src="/icons-search.svg" alt="Weather Icon"/>
+                        <img className='weather-icon' src="/windy_icon.svg" alt="Missing icon"/>
                         <p>{data.current.wind_speed_10m} m/s</p>
                     </div>
                 </div>

@@ -25,6 +25,7 @@ export const MainPage = () => {
                 ))}
             </div>
             <WeatherCard city={city} />
+            <WeatherCard city={city} />
         </div>
     </>
 );
